@@ -1,0 +1,8 @@
+{
+  "name": "FeedbackAI",
+  "description": "An AI-powered speaking coach tailored for executives to refine their leadership feedback skiils",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
