@@ -7,16 +7,13 @@ export enum UserRole {
   SUPER_ADMIN = 'SUPER_ADMIN'
 }
 
-export interface Company {
-  id: string;
-  name: string;
-  created_at?: string;
-}
+export type PlanType = 'FREE' | 'BASIC' | 'PRO' | 'UNLIMITED';
 
 export interface User {
   id: string;
   email: string;
   role: UserRole;
+  planType: PlanType;
   firstName: string;
   lastName: string;
   age: number;
@@ -26,6 +23,12 @@ export interface User {
   position: string;
   companyId?: string;
   companyName?: string;
+}
+
+export interface Company {
+  id: string;
+  name: string;
+  created_at?: string;
 }
 
 export enum SessionPhase {
@@ -51,19 +54,15 @@ export interface SessionFeedback {
   communication: number;
   emotionalIntelligence: number;
   smartScore: number;
-  
   verbalAnalysis: string;
   emotionalAnalysis: string;
   bodyLanguageAnalysis: string;
-  
   smartCriteria: SmartCriteria;
-  
   keyTakeaways: string[];
   improvementAreas: string[];
   actionPlan: string[];
   suggestions: string[];
   marketMethodology: string;
-  
   fillerWordCount: Record<string, number>;
   obsceneLanguageDetected: boolean;
 }
@@ -71,11 +70,13 @@ export interface SessionFeedback {
 export enum AppState {
   LANDING = 'LANDING',
   LOGIN = 'LOGIN',
+  REGISTER = 'REGISTER',
   DASHBOARD = 'DASHBOARD',
   PRACTICE = 'PRACTICE',
   RESULTS = 'RESULTS',
   HISTORY = 'HISTORY',
-  ADMIN_PANEL = 'ADMIN_PANEL'
+  ADMIN_PANEL = 'ADMIN_PANEL',
+  PRICING = 'PRICING'
 }
 
 export interface Scenario {

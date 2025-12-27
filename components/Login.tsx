@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { supabase } from '../services/supabase';
-import { User, UserRole, Language } from '../types';
+import { User, UserRole, Language, PlanType } from '../types';
 
 interface LoginProps {
   onLoginSuccess: (user: User) => void;
@@ -37,6 +37,7 @@ const Login: React.FC<LoginProps> = ({ onLoginSuccess, lang }) => {
         id: data.id,
         email: data.email,
         role: data.role as UserRole,
+        planType: (data.plan_type as PlanType) || 'FREE',
         firstName: data.first_name,
         lastName: data.last_name,
         age: data.age,
